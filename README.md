@@ -1,4 +1,4 @@
-###1.Introduction
+1.Introduction
 
 PII information is scattered everywhere. In fact, if you were to go through your garbage, you would probably find some PII quite easily. Protecting this information requires diligence and a bit of care. I recommend that everyone invest in a good paper shredder and shred anything that has personal information on it.
 But what about the PII lurking about on your PC? Finding this data can be as challenging as storing it securely. [Source](https://technet.microsoft.com/en-us/library/2008.04.securitywatch.aspx)
@@ -7,7 +7,7 @@ This script is designed to help you find important PII that is stored on the tar
 
 Feedback is always welcome since I am pretty new to the PowerShell game :)
 
-###2.Adapting the script
+2.Adapting the script
 
 Adapting the script is very easy and the usage can be explained rather easy.
 Here are the most important things you can adapt in order to use the script for your IT environment:
@@ -16,6 +16,7 @@ $OutputPath Variable
 This variable needs to be changed to the location where you want the results of the script to be stored
 
 How does the output look like ?
+
 Here is an example on how the output might look like:
 
 Path: C:\data\Payroll.csv Row: 56 Type: IBAN
@@ -29,7 +30,8 @@ Currently there are working regex patterns to search for IBANs, Creditcards and 
 
 Please note that there will most likely be false positives but I have tested those regex patterns and the amount of false positives should not be a factor while scanning for PII.
 
-######How do I add patterns ?
+How do I add patterns ?
+
 In the GetPIIResults function there is a switch-statement where you can find the regex patterns. Simply add a new row with your pattern.
 
 ```swift
@@ -48,7 +50,8 @@ The only thing you have to do now is to call the GetPIIResults function in the f
 GetPIIResults $TargetedPath "New"
 ```
 
-######Which files get checked ?
+Which files get checked ?
+
 The file types that are being scanned are defined in the variable $ExtensionsToFilter
 You can always remove or add file extensions to this variable in order to adapt the script to your needs. 
 
